@@ -43,7 +43,10 @@ O servidor será iniciado na porta definida no arquivo `docker-compose.yml`.
 ##### Caso não queira usar Docker ou não queira instalar docker para testar.
 
 Entre na pasta do porjeto e rode o comando:
-` npm run dev`
+
+1. `npm i`
+2. ` npx prisma generate`
+3. ` npm run dev`
 
 ### 3. Acessar a Documentação Swagger
 
