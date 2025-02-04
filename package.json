@@ -6,7 +6,9 @@
     "scripts": {
         "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules ./src/server.ts",
         "build": "tsc -p .",
-        "start": "NODE_PATH=./build node dist/server.js"
+        "start": "NODE_PATH=./build node dist/server.js",
+        "test": "jest",
+        "test:coverage": "jest --coverage"
     },
     "keywords": [],
     "author": "",
