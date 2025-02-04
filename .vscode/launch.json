@@ -1,0 +1,13 @@
+{
+    "configurations": [{
+        "type": "node",
+        "request": "attach",
+        "name": "Node container",
+        "port": 9229
+    }, {
+        "type": "node",
+        "request": "attach",
+        "name": "Node dev",
+        "port": 4000
+    }]
+}

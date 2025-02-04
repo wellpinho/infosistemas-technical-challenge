@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+    restart: always
+    ports:
+      - "4000:4000"
+      - "9229:9229"
+    networks:
+      - apps-network
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - API_DATABASE_URL=${API_DATABASE_URL}
+networks:
+  apps-network:
+    driver: bridge
