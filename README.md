@@ -4,24 +4,24 @@ Este projeto consiste em um CRUD simples desenvolvido com Node.js e MongoDB, doc
 
 ## Tecnologias Utilizadas
 
-- **Node.js** - Plataforma para executar código JavaScript no servidor.
-- **Express.js** - Framework web para Node.js.
-- **MongoDB** - Banco de dados (SGBD) não relacional, de código aberto e orientado a documentos.
-- **Swagger** - Documentação interativa para APIs REST.
-- **Docker** - Para facilitar a implantação e execução do projeto.
-- **JEST** - Para testes unitários.
+-   **Node.js** - Plataforma para executar código JavaScript no servidor.
+-   **Express.js** - Framework web para Node.js.
+-   **MongoDB** - Banco de dados (SGBD) não relacional, de código aberto e orientado a documentos.
+-   **Swagger** - Documentação interativa para APIs REST.
+-   **Docker** - Para facilitar a implantação e execução do projeto.
+-   **JEST** - Para testes unitários.
 
 ## Metodologia que gosto e pratico no meu dia a dia
 
-- **Kanban** - Para organizar as tarefas.
-- **SCRUM** - Para planejar o tamanho da sprint e priorizar as tarejas.
+-   **Kanban** - Para organizar as tarefas.
+-   **SCRUM** - Para planejar o tamanho da sprint e priorizar as tarejas.
 
 ## Funcionalidades
 
-- Criar, ler, atualizar e deletar registros.
-- Persistência de dados utilizando MongoDB.
-- Documentação interativa da API com Swagger.
-- Execução simplificada via Docker.
+-   Criar, ler, atualizar e deletar registros.
+-   Persistência de dados utilizando MongoDB.
+-   Documentação interativa da API com Swagger.
+-   Execução simplificada via Docker.
 
 ## Como Rodar o Projeto
 
@@ -58,7 +58,9 @@ Entre na pasta do projeto e rode o comando:
 
 ### 3. Acessar a Documentação Swagger
 
-Após iniciar o servidor, acesse `http://localhost:3000/api-docs` para visualizar a documentação da API.
+![alt text](image-1.png)
+
+Após iniciar o servidor, acesse `http://localhost:4000/api-docs` para visualizar a documentação da API.
 
 ## Estrutura do Projeto
 
