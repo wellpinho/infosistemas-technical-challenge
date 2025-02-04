@@ -9,7 +9,7 @@ Este projeto consiste em um CRUD simples desenvolvido com Node.js e MongoDB, doc
 - **MongoDB** - Banco de dados (SGBD) não relacional, de código aberto e orientado a documentos.
 - **Swagger** - Documentação interativa para APIs REST.
 - **Docker** - Para facilitar a implantação e execução do projeto.
-- **Mocha** - Para testes unitários.
+- **JEST** - Para testes unitários.
 
 ## Metodologia que gosto e pratico no meu dia a dia
 
@@ -25,6 +25,10 @@ Este projeto consiste em um CRUD simples desenvolvido com Node.js e MongoDB, doc
 
 ## Como Rodar o Projeto
 
+Para rodar coverage dos teste: `npm run test:coverage`
+Para abrir o coverage no navegador: vá na pasta `coverage/index.html` e abra usando opção google ou seu navegador favorito. Ou instaler a extensão live server e depois só abrir o html.
+Para ver os testes pelo terminal: `npm run test`
+
 ### 1. Clonar o Repositório
 
 ```bash
@@ -35,18 +39,22 @@ cd infosistemas-technical-challenge
 ### 2. Rodar com Docker
 
 ```bash
-docker-compose up -d
+docker-compose build api && docker compose up -d api && docker compose logs -f api
 ```
 
-O servidor será iniciado na porta definida no arquivo `docker-compose.yml`.
+saída do log deve se igual a esta: Server running on port 4000
 
-##### Caso não queira usar Docker ou não queira instalar docker para testar.
+### 3 Caso não queira usar Docker ou não queira instalar docker para testar.
 
-Entre na pasta do porjeto e rode o comando:
+Entre na pasta do projeto e rode o comando:
 
 1. `npm i`
 2. ` npx prisma generate`
 3. ` npm run dev`
+
+### 4 Site que usei para criar os dados fakes para testes de cadastro de um carro
+
+[4devs.com](https://www.4devs.com.br/gerador_de_veiculos)
 
 ### 3. Acessar a Documentação Swagger
 

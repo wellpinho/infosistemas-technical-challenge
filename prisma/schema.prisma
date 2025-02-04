@@ -1,19 +1,20 @@
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+    provider = "mongodb"
+    url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 model Car {
-  id     String @id @default(auto()) @map("_id") @db.ObjectId
-  placa  String @unique
-  chassi String @unique
-  modelo String
-  marca  String
-  ano    Int
+    id      String @id @default(auto()) @map("_id") @db.ObjectId
+    placa   String @unique
+    chassi  String @unique
+    renavam String @unique
+    modelo  String
+    marca   String
+    ano     Int
 
-  @@map("cars")
+    @@map("cars")
 }
