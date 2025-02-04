@@ -2,14 +2,9 @@ import { AppError } from "../../../errors/AppError";
 import { ICar } from "../../../interfaces";
 import { prismaClient } from "../../../prismaClient";
 
-export const createCarService = async ({
-    placa,
-    ano,
-    chassi,
-    marca,
-    modelo,
-    renavam,
-}: ICar) => {
+export const createCarService = async ({ ...data }: ICar) => {
+    const { placa, ano, chassi, marca, modelo, renavam } = data;
+
     try {
         const hasCar = await prismaClient.car.findFirst({
             where: {

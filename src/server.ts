@@ -4,6 +4,8 @@ import "express-async-errors";
 import { routes } from "./routes";
 import { AppError } from "./errors/AppError";
 import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocs from "./swagger";
 
 const app = express();
 
@@ -11,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(routes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     if (error instanceof AppError) {
