@@ -118,11 +118,14 @@ const swaggerDocs: OpenAPIV3.Document = {
                 type: "object",
                 properties: {
                     id: { type: "string", example: "65bdf8d7b5e8a2f1c4d3e6a9" },
-                    placa: { type: "string", example: "ABC1D23" },
-                    chassi: { type: "string", example: "9BWZZZ377VT004251" },
-                    renavam: { type: "string", example: "12345678900" },
-                    modelo: { type: "string", example: "Corolla" },
-                    marca: { type: "string", example: "Toyota" },
+                    placa: { type: "string", example: "LWW-3221" },
+                    chassi: { type: "string", example: "1HGCM82633A123456" },
+                    renavam: { type: "string", example: "39088639547" },
+                    modelo: {
+                        type: "string",
+                        example: "A4 2.0 Avant TFSI 200/214cv Multitron",
+                    },
+                    marca: { type: "string", example: "Audi" },
                     ano: { type: "integer", example: 2023 },
                 },
                 required: [

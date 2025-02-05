@@ -1,6 +1,12 @@
-import { AppError } from "../../../errors/AppError";
-import { ICar } from "../../../interfaces";
-import { prismaClient } from "../../../prismaClient";
+import { AppError } from "../../errors/AppError";
+import { ICar } from "../../interfaces";
+import { prismaClient } from "../../prismaClient";
+
+export const listCarsService = async () => {
+    const cars = await prismaClient.car.findMany();
+
+    return cars;
+};
 
 export const createCarService = async ({ ...data }: ICar) => {
     const { placa, ano, chassi, marca, modelo, renavam } = data;

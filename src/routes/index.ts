@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { carRoutes } from "../modules/cars/routes/Car.routes";
+import { carRoutes } from "../modules/cars/Car.routes";
 
 const routes = Router();
 

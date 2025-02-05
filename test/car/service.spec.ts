@@ -1,5 +1,8 @@
 import { describe, expect, test } from "@jest/globals";
-import { createCarService } from "../../src/modules/cars/services/CarService";
+import {
+    createCarService,
+    listCarsService,
+} from "../../src/modules/cars/CarService";
 import { AppError } from "../../src/errors/AppError";
 
 describe("Car Service", () => {
@@ -43,5 +46,11 @@ describe("Car Service", () => {
         const expected = new AppError("Car already exists", 400);
 
         expect(response).toStrictEqual(expected);
+    });
+
+    test("should receive list of cars", async () => {
+        const response = await listCarsService();
+
+        expect(response.length).toStrictEqual(1);
     });
 });
