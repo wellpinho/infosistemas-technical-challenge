@@ -2,6 +2,7 @@ import { describe, expect, test } from "@jest/globals";
 import {
     createCarService,
     listCarsService,
+    showCarService,
 } from "../../src/modules/cars/CarService";
 import { AppError } from "../../src/errors/AppError";
 
@@ -52,5 +53,16 @@ describe("Car Service", () => {
         const response = await listCarsService();
 
         expect(response.length).toStrictEqual(1);
+    });
+
+    test("should receive one car when give placa", async () => {
+        const response = await showCarService(given.placa);
+
+        expect(response?.placa).toStrictEqual(given.placa);
+    });
+
+    test("should receive null when car not found in database", async () => {
+        const response = await showCarService("fake-placa");
+        expect(response).toStrictEqual(null);
     });
 });

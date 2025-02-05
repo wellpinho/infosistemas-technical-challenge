@@ -1,10 +1,15 @@
 import { Router } from "express";
 import { celebrate, Joi, errors, Segments } from "celebrate";
-import { createCarController, listCarController } from "./CarController";
+import {
+    createCarController,
+    listCarController,
+    showCarController,
+} from "./CarController";
 
 const carRoutes = Router();
 
 carRoutes.get("/cars", listCarController as any);
+carRoutes.get("/cars/placa/:placa", showCarController as any);
 
 carRoutes.post(
     "/cars",
