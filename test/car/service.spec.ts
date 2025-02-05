@@ -1,6 +1,7 @@
 import { describe, expect, test } from "@jest/globals";
 import {
     createCarService,
+    deleteCarService,
     listCarsService,
     showCarService,
     updateCarService,
@@ -70,5 +71,13 @@ describe("Car Service", () => {
     test("expect to receive cars with updated year", async () => {
         const response = await updateCarService({ ...given, ano: 2010 });
         expect(response.ano).toStrictEqual(2010);
+    });
+
+    test("expect delete a car when give placa", async () => {
+        const response = await deleteCarService(given.placa);
+        expect(response).toStrictEqual({
+            message: "Car removed sucessfully",
+            code: 200,
+        });
     });
 });
