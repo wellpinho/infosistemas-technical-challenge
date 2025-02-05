@@ -1,11 +1,10 @@
 import { OpenAPIV3 } from "openapi-types";
 
-const swaggerDocs: OpenAPIV3.Document = {
+const swaggerDocs = {
     openapi: "3.0.0",
     info: {
         title: "API de Carros",
-        description:
-            "API para gerenciar informações de carros. URL padrão: http://localhost:4000",
+        description: "API para gerenciar informações de carros.",
         version: "1.0.0",
     },
     paths: {
@@ -45,9 +44,35 @@ const swaggerDocs: OpenAPIV3.Document = {
                 },
             },
         },
+        "/cars/placa/{placa}": {
+            get: {
+                summary: "Buscar um carro pela placa",
+                operationId: "getCarByPlaca",
+                tags: ["Carros"],
+                parameters: [
+                    {
+                        name: "placa",
+                        in: "path",
+                        required: true,
+                        schema: { type: "string" },
+                    },
+                ],
+                responses: {
+                    "200": {
+                        description: "Carro encontrado",
+                        content: {
+                            "application/json": {
+                                schema: { $ref: "#/components/schemas/Car" },
+                            },
+                        },
+                    },
+                    "404": { description: "Carro não encontrado" },
+                },
+            },
+        },
         "/cars/{id}": {
             get: {
-                summary: "Buscar um carro pelo ID",
+                summary: "Buscar um carro pelo ID (antigo endpoint)",
                 operationId: "getCarById",
                 tags: ["Carros"],
                 parameters: [
@@ -70,47 +95,8 @@ const swaggerDocs: OpenAPIV3.Document = {
                     "404": { description: "Carro não encontrado" },
                 },
             },
-            put: {
-                summary: "Atualizar um carro pelo ID",
-                operationId: "updateCar",
-                tags: ["Carros"],
-                parameters: [
-                    {
-                        name: "id",
-                        in: "path",
-                        required: true,
-                        schema: { type: "string" },
-                    },
-                ],
-                requestBody: {
-                    required: true,
-                    content: {
-                        "application/json": {
-                            schema: { $ref: "#/components/schemas/Car" },
-                        },
-                    },
-                },
-                responses: {
-                    "200": { description: "Carro atualizado com sucesso" },
-                },
-            },
-            delete: {
-                summary: "Deletar um carro pelo ID",
-                operationId: "deleteCar",
-                tags: ["Carros"],
-                parameters: [
-                    {
-                        name: "id",
-                        in: "path",
-                        required: true,
-                        schema: { type: "string" },
-                    },
-                ],
-                responses: {
-                    "204": { description: "Carro deletado com sucesso" },
-                },
-            },
         },
+        // Outros endpoints...
     },
     components: {
         schemas: {
@@ -118,14 +104,11 @@ const swaggerDocs: OpenAPIV3.Document = {
                 type: "object",
                 properties: {
                     id: { type: "string", example: "65bdf8d7b5e8a2f1c4d3e6a9" },
-                    placa: { type: "string", example: "LWW-3221" },
-                    chassi: { type: "string", example: "1HGCM82633A123456" },
-                    renavam: { type: "string", example: "39088639547" },
-                    modelo: {
-                        type: "string",
-                        example: "A4 2.0 Avant TFSI 200/214cv Multitron",
-                    },
-                    marca: { type: "string", example: "Audi" },
+                    placa: { type: "string", example: "ABC1D23" },
+                    chassi: { type: "string", example: "9BWZZZ377VT004251" },
+                    renavam: { type: "string", example: "12345678900" },
+                    modelo: { type: "string", example: "Corolla" },
+                    marca: { type: "string", example: "Toyota" },
                     ano: { type: "integer", example: 2023 },
                 },
                 required: [
