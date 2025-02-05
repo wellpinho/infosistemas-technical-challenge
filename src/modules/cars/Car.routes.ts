@@ -4,6 +4,7 @@ import {
     createCarController,
     listCarController,
     showCarController,
+    updateCarController,
 } from "./CarController";
 
 const carRoutes = Router();
@@ -24,6 +25,21 @@ carRoutes.post(
         }),
     }),
     createCarController as any
+);
+
+carRoutes.put(
+    "/cars/placa/:placa",
+    celebrate({
+        [Segments.BODY]: Joi.object().keys({
+            placa: Joi.string(),
+            chassi: Joi.string(),
+            renavam: Joi.string(),
+            modelo: Joi.string(),
+            marca: Joi.string(),
+            ano: Joi.number(),
+        }),
+    }),
+    updateCarController as any
 );
 
 carRoutes.use(errors());

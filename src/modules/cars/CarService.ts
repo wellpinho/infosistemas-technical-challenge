@@ -1,5 +1,6 @@
 import { AppError } from "../../errors/AppError";
 import { ICar } from "../../interfaces";
+import { IUpdateCar } from "../../interfaces/ICar";
 import { prismaClient } from "../../prismaClient";
 
 export const listCarsService = async () => {
@@ -43,4 +44,17 @@ export const showCarService = async (placa: string) => {
     });
 
     return car;
+};
+
+export const updateCarService = async ({ ...data }: IUpdateCar) => {
+    const response = await prismaClient.car.update({
+        where: {
+            placa: data.placa,
+        },
+        data: {
+            ...data,
+        },
+    });
+
+    return response;
 };

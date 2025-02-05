@@ -3,6 +3,7 @@ import {
     createCarService,
     listCarsService,
     showCarService,
+    updateCarService,
 } from "../../src/modules/cars/CarService";
 import { AppError } from "../../src/errors/AppError";
 
@@ -64,5 +65,10 @@ describe("Car Service", () => {
     test("should receive null when car not found in database", async () => {
         const response = await showCarService("fake-placa");
         expect(response).toStrictEqual(null);
+    });
+
+    test("expect to receive cars with updated year", async () => {
+        const response = await updateCarService({ ...given, ano: 2010 });
+        expect(response.ano).toStrictEqual(2010);
     });
 });
