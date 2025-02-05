@@ -15,6 +15,7 @@ Este projeto consiste em um CRUD simples desenvolvido com Node.js e MongoDB, doc
 
 -   **Kanban** - Para organizar as tarefas.
 -   **SCRUM** - Para planejar o tamanho da sprint e priorizar as tarejas.
+    ![alt text](image-2.png)
 
 ## Funcionalidades
 
