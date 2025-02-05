@@ -42,7 +42,7 @@ cd infosistemas-technical-challenge
 Crie um arquivo .env na raiz do projeto com este environment:
 `DATABASE_URL="mongodb+srv://test:TEMPORARY-TEST@cluster0.pquzp.mongodb.net/cars?retryWrites=true&w=majority&appName=Cluster0"`
 
-Em seguida roder o comando para fazer o build, subir o container e exibir os logs no terminal.
+Em seguida execute o comando para fazer o build, subir o container e exibir os logs no terminal.
 
 ```bash
 docker-compose build api && docker compose up -d api && docker compose logs -f api
@@ -52,7 +52,7 @@ saída do log deve se igual a esta: Server running on port 4000
 
 ### 3 Caso não queira usar Docker ou não queira instalar docker para testar.
 
-Entre na pasta do projeto e rode o comando:
+Entre na pasta do projeto e execute o comando:
 
 1. `npm i`
 2. ` npx prisma generate`
