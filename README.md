@@ -15,7 +15,7 @@ Este projeto consiste em um CRUD simples desenvolvido com Node.js e MongoDB, doc
 
 -   **Kanban** - Para organizar as tarefas.
 -   **SCRUM** - Para planejar o tamanho da sprint e priorizar as tarejas.
-    ![alt text](image-2.png)
+    ![alt text](./assets/image-2.png)
 
 ## Funcionalidades
 
@@ -64,7 +64,7 @@ Entre na pasta do projeto e execute o comando:
 
 ### 3. Acessar a Documentação Swagger
 
-![alt text](image-1.png)
+![alt text](./assets/image-1.png)
 
 Após iniciar o servidor, acesse `http://localhost:4000/api-docs` para visualizar a documentação da API.
 
@@ -105,7 +105,7 @@ Após iniciar o servidor, acesse `http://localhost:4000/api-docs` para visualiza
 
 ## Coverage de testes
 
-![alt text](image.png)
+![alt text](./assets/image.png)
 
 ## Contribuição
 
