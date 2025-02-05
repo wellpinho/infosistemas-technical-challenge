@@ -38,6 +38,9 @@ cd infosistemas-technical-challenge
 
 ### 2. Rodar com Docker
 
+Crie um arquivo .env na raiz do projeto e colcoar este environment:
+`DATABASE_URL="mongodb+srv://test:TEMPORARY-TEST@cluster0.pquzp.mongodb.net/cars?retryWrites=true&w=majority&appName=Cluster0"`
+
 ```bash
 docker-compose build api && docker compose up -d api && docker compose logs -f api
 ```
@@ -68,12 +71,18 @@ Após iniciar o servidor, acesse `http://localhost:4000/api-docs` para visualiza
 ├── src
 │   ├── modules
 │       ├── cars
-│           ├── controllers
-│           ├── services
-│           ├── routes
-│   ├── prisma
-│   ├── swagger
-│   ├── app.js
+│           ├── CarControllers.ts
+│           ├── CarServices.ts
+│           ├── Car.routes.ts
+│   ├── prisma/
+│   ├── errors/
+│   ├── interfaces/
+│   ├── prismaClient/
+│   ├── utils/
+│   ├── routes/
+│   ├── server.ts
+│   ├── swagger.ts
+│   ├── test/
 ├── docker-compose.yml
 ├── Dockerfile
 ├── package.json
@@ -90,6 +99,10 @@ Após iniciar o servidor, acesse `http://localhost:4000/api-docs` para visualiza
 | POST   | /cars     | Cadastra um novo carro    |
 | PUT    | /cars/:id | Atualiza um carro pelo ID |
 | DELETE | /cars/:id | Remove um carro pelo ID   |
+
+## Coverage de testes
+
+![alt text](image.png)
 
 ## Contribuição
 
