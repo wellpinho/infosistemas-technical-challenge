@@ -58,3 +58,17 @@ export const updateCarService = async ({ ...data }: IUpdateCar) => {
 
     return response;
 };
+
+export const deleteCarService = async (placa: string) => {
+    const response = await prismaClient.car.delete({
+        where: {
+            placa,
+        },
+    });
+
+    if (!response) {
+        return new AppError("Car not found");
+    }
+
+    return { message: "Car removed sucessfully", code: 200 };
+};

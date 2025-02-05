@@ -2,6 +2,7 @@ import { Router } from "express";
 import { celebrate, Joi, errors, Segments } from "celebrate";
 import {
     createCarController,
+    deleteCarController,
     listCarController,
     showCarController,
     updateCarController,
@@ -41,6 +42,8 @@ carRoutes.put(
     }),
     updateCarController as any
 );
+
+carRoutes.delete("/cars/placa/:placa", deleteCarController as any);
 
 carRoutes.use(errors());
 export { carRoutes };
