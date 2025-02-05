@@ -1,10 +1,9 @@
-import { OpenAPIV3 } from "openapi-types";
-
 const swaggerDocs = {
     openapi: "3.0.0",
     info: {
         title: "API de Carros",
-        description: "API para gerenciar informações de carros.",
+        description:
+            "API para gerenciar informações de carros. URL base: http://localhost:4000",
         version: "1.0.0",
     },
     paths: {
@@ -41,6 +40,7 @@ const swaggerDocs = {
                 },
                 responses: {
                     "201": { description: "Carro criado com sucesso" },
+                    "400": { description: "Dados inválidos" },
                 },
             },
         },
@@ -69,41 +69,56 @@ const swaggerDocs = {
                     "404": { description: "Carro não encontrado" },
                 },
             },
-        },
-        "/cars/{id}": {
-            get: {
-                summary: "Buscar um carro pelo ID (antigo endpoint)",
-                operationId: "getCarById",
+            put: {
+                summary: "Atualizar um carro pela placa",
+                operationId: "updateCarByPlaca",
                 tags: ["Carros"],
                 parameters: [
                     {
-                        name: "id",
+                        name: "placa",
+                        in: "path",
+                        required: true,
+                        schema: { type: "string" },
+                    },
+                ],
+                requestBody: {
+                    required: true,
+                    content: {
+                        "application/json": {
+                            schema: { $ref: "#/components/schemas/Car" },
+                        },
+                    },
+                },
+                responses: {
+                    "200": { description: "Carro atualizado com sucesso" },
+                    "404": { description: "Carro não encontrado" },
+                    "400": { description: "Dados inválidos" },
+                },
+            },
+            delete: {
+                summary: "Excluir um carro pela placa",
+                operationId: "deleteCarByPlaca",
+                tags: ["Carros"],
+                parameters: [
+                    {
+                        name: "placa",
                         in: "path",
                         required: true,
                         schema: { type: "string" },
                     },
                 ],
                 responses: {
-                    "200": {
-                        description: "Carro encontrado",
-                        content: {
-                            "application/json": {
-                                schema: { $ref: "#/components/schemas/Car" },
-                            },
-                        },
-                    },
+                    "200": { description: "Carro excluído com sucesso" },
                     "404": { description: "Carro não encontrado" },
                 },
             },
         },
-        // Outros endpoints...
     },
     components: {
         schemas: {
             Car: {
                 type: "object",
                 properties: {
-                    id: { type: "string", example: "65bdf8d7b5e8a2f1c4d3e6a9" },
                     placa: { type: "string", example: "ABC1D23" },
                     chassi: { type: "string", example: "9BWZZZ377VT004251" },
                     renavam: { type: "string", example: "12345678900" },
