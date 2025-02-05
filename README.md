@@ -38,8 +38,10 @@ cd infosistemas-technical-challenge
 
 ### 2. Rodar com Docker
 
-Crie um arquivo .env na raiz do projeto e colcoar este environment:
+Crie um arquivo .env na raiz do projeto com este environment:
 `DATABASE_URL="mongodb+srv://test:TEMPORARY-TEST@cluster0.pquzp.mongodb.net/cars?retryWrites=true&w=majority&appName=Cluster0"`
+
+Em seguida roder o comando para fazer o build, subir o container e exibir os logs no terminal.
 
 ```bash
 docker-compose build api && docker compose up -d api && docker compose logs -f api
@@ -91,14 +93,14 @@ Após iniciar o servidor, acesse `http://localhost:4000/api-docs` para visualiza
 
 ## Endpoints Principais
 
-| Método | Rota      | Descrição                 |
-| ------ | --------- | ------------------------- |
-| GET    | /         | Página de boas vindas     |
-| GET    | /cars     | Lista todos os carros     |
-| GET    | /cars/:id | Obtém um carro pelo ID    |
-| POST   | /cars     | Cadastra um novo carro    |
-| PUT    | /cars/:id | Atualiza um carro pelo ID |
-| DELETE | /cars/:id | Remove um carro pelo ID   |
+| Método | Rota               | Descrição                    |
+| ------ | ------------------ | ---------------------------- |
+| GET    | /                  | Página de boas vindas        |
+| GET    | /cars              | Lista todos os carros        |
+| GET    | /cars/:placa       | Obtém um carro pela PLACA    |
+| POST   | /cars              | Cadastra um novo carro       |
+| PUT    | /cars/placa/:placa | Atualiza um carro pela PLACA |
+| DELETE | /cars/placa/:placa | Remove um carro pela PLACA   |
 
 ## Coverage de testes
 
